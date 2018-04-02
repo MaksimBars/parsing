@@ -8,8 +8,8 @@ for i in range(1, 230):
     count = len(t)
     filename = 'book.txt'
     for i in range(1, count):
-        fix = t[i].text
+        book = t[i].text
         filename = open('book.txt','a')
         filename.write(t[i].text + '\n')
         filename.close()
-        print(fix)
+        print(book)
