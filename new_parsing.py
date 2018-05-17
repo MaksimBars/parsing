@@ -39,17 +39,17 @@ def main():
     url = input('Enter the URL: ')
     base_url = url
     page_part = '&page='
-    total_pages =  get_total_pages(get_html(base_url))
+    total_pages = get_total_pages(get_html(base_url))
     for i in range(0, total_pages):
         url_gen = base_url + page_part + str(i+1)
         page = requests.get(url_gen)
         soup = BeautifulSoup(page.text, 'lxml')
         text = soup.find('div', id='ptext').find_all('p')
         count = len(text)
-        for i in range(1, count):
-            text_book = text[i].text
+        for x in range(1, count):
+            text_book = text[x].text
             filename = open(get_name(get_html(url)), 'a')
-            filename.write(text[i].text + '\n')
+            filename.write(text[x].text + '\n')
             filename.close()
             print(text_book)
 
